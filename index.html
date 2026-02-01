@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitation</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+    <div class="flower-container">
+        <img src="./assets/flower-1.png" alt="">
+    </div>
+    <div class="bottom-flower-container">
+        <img src="./assets/flower-2.png" alt="">
+    </div>
+    <div class="flex flex-col items-center justify-center min-h-screen py-10 gap-4">
+        <div class="flex items-center justify-center">
+            <h1 class="tangerine-bold text-[4rem] md:text-[5rem] text-[#a53860]">Save The Date</h1>
+        </div>
+
+        <div class="relative flex items-center justify-center">
+            <!-- Permanent Inset Heart Background -->
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <svg width="200" height="200" viewBox="0 0 200 200">
+                    <defs>
+                        <!-- Softened Inset Shadow Filter -->
+                        <filter id="precise-inset" x="-20%" y="-20%" width="140%" height="140%">
+                            <!-- Shadow Pass -->
+                            <feGaussianBlur in="SourceAlpha" stdDeviation="5.5" result="blur" />
+                            <feOffset dx="3" dy="3" result="offset" />
+                            <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowDiff" />
+                            <feFlood flood-color="rgba(180, 130, 140, 0.45)" result="color" />
+                            <feComposite in2="shadowDiff" operator="in" />
+                            <feComposite in2="SourceAlpha" operator="in" result="innerShadow" />
+
+                            <!-- Highlight Pass -->
+                            <feGaussianBlur in="SourceAlpha" stdDeviation="4.5" result="blurHighlight" />
+                            <feOffset dx="-3" dy="-3" result="offsetHighlight" />
+                            <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"
+                                result="highlightDiff" />
+                            <feFlood flood-color="rgba(255, 255, 255, 0.7)" result="colorHighlight" />
+                            <feComposite in2="highlightDiff" operator="in" />
+                            <feComposite in2="SourceAlpha" operator="in" result="innerHighlight" />
+
+                            <!-- Merge everything -->
+                            <feMerge>
+                                <feMergeNode in="SourceGraphic" />
+                                <feMergeNode in="innerShadow" />
+                                <feMergeNode in="innerHighlight" />
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    <path
+                        d="M100,57 C100,0 5,0 5,57 C5,114 43,152 100,190 C157,152 195,114 195,57 C195,0 100,0 100,57 Z"
+                        fill="#fff5f8" filter="url(#precise-inset)" />
+                </svg>
+            </div>
+
+            <!-- Content to reveal -->
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <p class="tangerine-bold text-center px-6 leading-[1.1] mt-[-10px]">
+                    <span class="text-[#c195f7] text-[1.6rem] md:text-[1.8rem]">You're Invited</span>
+                    <br>
+                    <span class="text-[#ffafcc] text-[1.6rem] md:text-[1.8rem]">15-11-2026</span>
+                </p>
+            </div>
+            <!-- Scratch Canvas -->
+            <canvas id="scratch-pad" class="relative z-10" style="background: transparent;"></canvas>
+        </div>
+
+        <div class="flex items-center justify-center">
+            <h1 class="tangerine-bold text-[2.6rem] md:text-[3rem] text-[#a53860] z-2">John & Doe</h1>
+        </div>
+    </div>
+    <div id="calendar-button-container"
+        class="fixed bottom-10 left-0 right-0 flex justify-center opacity-0 scale-90 pointer-events-none transition-all duration-700 ease-out">
+        <button
+            class="tangerine-bold text-xl bg-[#a53860] text-white px-8 py-3 rounded-full font-sans font-bold shadow-lg hover:bg-[#8e2d50] active:scale-95 transition-all cursor-pointer">
+            Add to Calendar
+        </button>
+    </div>
+
+    <audio id="bg-music" src="./assets/bg-audio.mp3" loop></audio>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
