@@ -1,6 +1,4 @@
-# Wedding Invitation
-
-A beautiful, interactive wedding invitation featuring:
+A beautiful, interactive invitation featuring:
 - **Scratch-to-reveal** glitter heart effect.
 - **Glitter texture** and elegant animations.
 - **Responsive design** optimized for mobile and desktop.
